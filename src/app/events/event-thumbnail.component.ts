@@ -10,4 +10,13 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class EventThumbnailComponent {
   @Input() event: any;
   @Output() eventClick = new EventEmitter();
+
+  getStartTimeClass() {
+    if (this.event && this.event.time === '8:00 am') {
+      return {color: '#003300', 'font-weight': 'bold'};
+    }
+    return [];
+    // const isEarlyStart = this.event && this.event.time === '8:00 am';
+    // return {green: isEarlyStart, bold: isEarlyStart};
+  }
 }

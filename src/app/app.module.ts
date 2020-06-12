@@ -8,6 +8,7 @@ import {EventThumbnailComponent} from './events/event-thumbnail.component';
 import {NavbarComponent} from './nav/navbar.component';
 import {EventService} from './shared/event.service';
 import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ToastrModule} from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [EventService],

@@ -12,6 +12,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {EventDetailsComponent} from './events/details/event-details.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
+import {CreateEventComponent} from './events/create/create-event.component';
+import {Error404Component} from './events/errors/404.component';
+import {EventRouteActivator} from './events/details/event-route-activator';
+import {EventsListResolverService} from './events/events-list-resolver.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import {appRoutes} from './routes';
     EventsListComponent,
     EventThumbnailComponent,
     EventDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreateEventComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,14 @@ import {appRoutes} from './routes';
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot()
   ],
-  providers: [EventService],
+  providers: [EventService, EventRouteActivator, EventsListResolverService],
   bootstrap: [EventsAppComponent]
 })
+
+// export function checkDirtyState(component: CreateEventComponent) {
+//   if (component.isDirty) {
+//     return window.confirm('Are you sure?');
+//   }
+//   return true;
+// }
 export class AppModule { }
